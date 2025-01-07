@@ -920,6 +920,11 @@
 	max-width: 600px;
 	margin: 0 auto;
   }
+#msg{
+	color: rgb(255, 255, 255);
+  margin-left: 100px;
+  margin-top: 15px;
+}
   .contact-content {
 	padding: 100px 0 100px 88px;
 	min-height: 100vh;

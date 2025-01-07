@@ -112,7 +112,7 @@
 				
 				<div class="contact-row">
 					<div class="left">
-						<form id="contact-form">
+						<form id="contact-form" name="submit-to-google-sheet">
 							<!-- Hidden Required Fields -->
 							<input type="hidden" name="project_name" value="Sylvia">
 							<input type="hidden" name="admin_email" value="bauka.abdi@gmail.com">
@@ -142,9 +142,13 @@
 
 							<div class="button-field wow animate__fadeInUp" data-wow-delay="0.9s">
 								<button type="submit">Send</button>
+								
 							</div>
+							<span id="msg"></span>
 						</form>
+						
 					</div>
+					
 
 					<div class="right">
 						<div class="contact-info">
@@ -220,5 +224,23 @@
 <script src="js/blazy.min.js"></script>
 <script src="js/parazoom.min.js"></script>
 <script src="js/script.js"></script>
+<script>
+	const scriptURL = 'https://script.google.com/macros/s/AKfycbztHbvvB7vPTka5Zssh9qbb6d1GIOoLRd1u3ZV5ic457sRp9xof2zVPA357y9h3ONImLA/exec'
+	const form = document.forms['submit-to-google-sheet']
+	const msg= document.getElementById('msg')
+  
+	form.addEventListener('submit', e => {
+	  e.preventDefault()
+	  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+		.then(response =>{
+			msg.innerHTML="Message Sent Successfully"
+			setTimeout(function(){
+				msg.innerHTML=''
+			},1000)
+			form.reset()
+		})
+		.catch(error => console.error('Error!', error.message))
+	})
+  </script>
 </body>
 </html>

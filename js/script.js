@@ -26,16 +26,16 @@ $(document).ready(function() {
 					}
 				});
 			},
-			error: function() {
-				th.trigger('reset');
-				$('.input-field').removeClass('is-active');
-				$.magnificPopup.open({
-					items: {
-						src: '<div class="form-alert"><p>An error occurred, please try again</p></div>',
-						type: 'inline'
-					}
-				});
-			}
+			// error: function() {
+			// 	th.trigger('reset');
+			// 	$('.input-field').removeClass('is-active');
+			// 	$.magnificPopup.open({
+			// 		items: {
+			// 			src: '<div class="form-alert"><p>An error occurred, please try again</p></div>',
+			// 			type: 'inline'
+			// 		}
+			// 	});
+			// }
 		});
 		return false;
 	});
